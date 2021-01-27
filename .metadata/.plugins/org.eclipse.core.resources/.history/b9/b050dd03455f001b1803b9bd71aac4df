@@ -1,0 +1,14 @@
+package com.appwebdeliver.appdeliver.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.appwebdeliver.appdeliver.entities.Pedidos;
+
+public interface OrderRepository extends JpaRepository<Pedidos, Long> {
+
+	@Query
+	List<Pedidos> listaPedidosPendentes();
+	
+}

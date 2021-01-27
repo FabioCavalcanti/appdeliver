@@ -1,0 +1,34 @@
+package com.appwebdeliver.appdeliver.dto;
+
+import com.appwebdeliver.appdeliver.entities.Produtos;
+
+public class ProductDTO {
+
+	private long id;
+	private String name;
+	private Double price;
+	private String description;
+	private String ImageUri;
+	
+	public ProdutoDTO() {
+		
+	}
+
+	public ProductDTO(long id, String name, Double price, String description, String imageUri) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		ImageUri = imageUri;
+	}
+	
+	public ProductDTO(Produtos entity) {
+		id = entity.getId();
+		name = entity.getName();
+		price = entity.getPrice();
+		description = entity.getDescription();
+		ImageUri = entity.getImageUri();
+	}
+	
+}

@@ -1,0 +1,21 @@
+package com.appwebdeliver.appdeliver.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.appwebdeliver.appdeliver.dto.ProductDTO;
+import com.appwebdeliver.appdeliver.repositories.ProductRepository;
+
+@Service
+public class ProductService {
+	
+	@Autowired
+	private ProductRepository repository;
+
+	public List<ProductDTO> listarTodos(){
+		
+	}
+	
+}

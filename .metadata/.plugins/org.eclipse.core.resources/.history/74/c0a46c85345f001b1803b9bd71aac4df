@@ -1,0 +1,7 @@
+package com.appwebdeliver.appdeliver.repositories;
+
+import com.appwebdeliver.appdeliver.entities.Produtos;
+
+public interface ProductRepository extends JpaRepository<Produtos, Long> {
+
+}

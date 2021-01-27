@@ -1,0 +1,18 @@
+package com.appwebdeliver.appdeliver.dto;
+
+import java.time.Instant;
+
+import com.appwebdeliver.appdeliver.entities.StatusPedido;
+
+public class OrderDTO {
+	
+	private Long id;
+	private String address;
+	private Double latitude;
+	private Double longitude;
+	private Instant moment;
+	private StatusPedido status;
+	
+	private List<ProductDTO> produtos = new ArrayList();
+
+}

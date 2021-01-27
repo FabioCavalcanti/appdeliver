@@ -1,0 +1,5 @@
+package com.appwebdeliver.appdeliver.repositories;
+
+public class ProductRepository extends SimpleJpaRepository<TProdutos, Long> {
+
+}

@@ -1,0 +1,20 @@
+package com.appwebdeliver.appdeliver.entities;
+
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Pedidos {
+	
+	private Long id;
+	private String endereco;
+	private Double latitude;
+	private Double longitude;
+	private Instant pedidoFeito;
+	private StatusPedido status;
+	
+	private Set<Produtos> produtosPedido = new HashSet<>();
+
+}
+
+

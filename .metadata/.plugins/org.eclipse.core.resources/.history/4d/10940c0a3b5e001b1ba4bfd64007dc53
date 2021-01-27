@@ -1,0 +1,5 @@
+package com.appwebdeliver.appdeliver.config;
+
+public class SecurityConfig {
+
+}

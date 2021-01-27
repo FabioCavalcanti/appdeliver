@@ -1,0 +1,44 @@
+package com.appwebdeliver.appdeliver.services;
+
+import java.time.Instant;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.appwebdeliver.appdeliver.dto.OrderDTO;
+import com.appwebdeliver.appdeliver.dto.ProductDTO;
+import com.appwebdeliver.appdeliver.entities.Pedidos;
+import com.appwebdeliver.appdeliver.entities.Produtos;
+import com.appwebdeliver.appdeliver.entities.StatusPedido;
+import com.appwebdeliver.appdeliver.repositories.OrderRepository;
+import com.appwebdeliver.appdeliver.repositories.ProductRepository;
+
+@Service
+public class OrderService {
+	
+	@Autowired
+	private OrderRepository repository;
+	
+	@Autowired
+	private ProductRepository productRepository;
+
+	@Transactional(readOnly = true)
+	public List<OrderDTO> listarTodos() {
+		List<Pedidos> lista = repository.listaPedidosPendentes();
+		return lista.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
+	}
+	
+	@Transactional
+	public OrderDTO inserirPedido(OrderDTO dto) {
+		Order pedido = new Pedidos(null, dto.getAddress(), dto.getLatitude(), dto.getLongitude(), Instant.now(), StatusPedido.PENDENTE);
+		for (ProductDTO p : dto.getProdutos()) {
+			Produtos produto = productRepository.getOne(p.getId());
+			pedido.getProdutosPedido().add(produto);
+		}
+	}
+	
+}

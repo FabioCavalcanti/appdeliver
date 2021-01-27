@@ -1,0 +1,33 @@
+package com.appwebdeliver.appdeliver.services;
+
+import java.time.Instant;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.appwebdeliver.appdeliver.dto.OrderDTO;
+import com.appwebdeliver.appdeliver.entities.Pedidos;
+import com.appwebdeliver.appdeliver.entities.StatusPedido;
+import com.appwebdeliver.appdeliver.repositories.OrderRepository;
+
+@Service
+public class OrderService {
+	
+	@Autowired
+	private OrderRepository repository;
+
+	@Transactional(readOnly = true)
+	public List<OrderDTO> listarTodos() {
+		List<Pedidos> lista = repository.listaPedidosPendentes();
+		return lista.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
+	}
+	
+	@Transactional
+	public OrderDTO inserirPedido(OrderDTO dto) {
+		Order pedido = new OrderDTO(null, dto.getAddress(), dto.getLatitude(), dto.getLongitude(), Instant.now(), StatusPedido.PENDENTE);
+	}
+	
+}

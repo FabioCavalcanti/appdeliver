@@ -1,0 +1,9 @@
+package com.appwebdeliver.appdeliver.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.appwebdeliver.appdeliver.entities.Pedidos;
+
+public interface OrderRepository extends JpaRepository<Pedidos, Long> {
+
+}

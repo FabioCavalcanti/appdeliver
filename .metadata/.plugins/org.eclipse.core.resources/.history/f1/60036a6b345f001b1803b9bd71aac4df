@@ -1,0 +1,9 @@
+package com.appwebdeliver.appdeliver.repositories;
+
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+
+import com.appwebdeliver.appdeliver.entities.Produtos;
+
+public interface ProductRepository extends SimpleJpaRepository<Produtos, Long> {
+
+}

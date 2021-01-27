@@ -1,0 +1,16 @@
+package com.appwebdeliver.appdeliver.entities;
+
+import java.time.Instant;
+
+public class Pedidos {
+	
+	private Long id;
+	private String endereco;
+	private Double latitude;
+	private Double longitude;
+	private Instant pedidoFeito;
+	private StatusPedido status;
+
+}
+
+
