@@ -1,7 +1,9 @@
 package com.appwebdeliver.appdeliver;
 
+@SpringBootTest
 class AppdeliverApplicationTests {
 
+	@Test
 	void contextLoads() {
 	}
 
